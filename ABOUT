@@ -1,0 +1,23 @@
+ABOUT
+-----
+
+  tagsoup.sh is a simple script for downloading and analysing web
+content, derived from an earlier script called relay.sh.
+
+  tagsoup.sh extends the document-flattening effect of relay.sh with
+some supplementary commands, which when fleshed out as desired (there
+is guidance in the relevant places) are capable of filtering the list
+of links/images produced. Likely filters you may desire include but
+are not limited to:
+- limit links to ones that are strictly-on-site documents
+- limit image links to those that go off-site
+- display only inline images with a particular file extension
+
+  tagsoup.sh has the following usage:
+	| ./tagsoup.sh: Usage:
+	| 	get)		## retrieve page/file
+	| 	separate)	## 'get' with layout readjustment, one tag per line
+	| 	ahref)		## 'separate', filter anchor tags, show href=
+	| 	imgsrc)		## 'separate', filter img tags, show src=
+	| 	dumplinks)	## site-sensitive 'ahref' filtering
+	| 	dumpimgs)	## site-sensitive 'imgsrc' filtering
