@@ -1,8 +1,9 @@
 #!/bin/sh
+##	tswrap.sh	(c) and GPLv2 2008-2022 William Towle
 
 SCRIPTBIN=`dirname $0`
 TAGSOUP=${SCRIPTBIN}/tagsoup.sh
-#[ -x ${TAGSOUP} ] || TAGSOUP=${SCRIPTBIN}/tagsoup-110126/ts110115.sh
+#[ -x ${TAGSOUP} ] || TAGSOUP=${SCRIPTBIN}/tagsoup-220125.sh
 
 #WGET_OPT_AGENT="--user-agent=/usr/bin/firefox"
 [ "${RECURSE}" ] || RECURSE=y
@@ -10,18 +11,18 @@ TAGSOUP=${SCRIPTBIN}/tagsoup.sh
 do_get_html_links()
 {
 	if [ -t 0 ] ; then
-		${TAGSOUP} dumplinks ${1+"$@"}
+		DLOPTS=${TAGSOUP_DLOPTS} ${TAGSOUP} dumplinks ${1+"$@"}
 	else
-		${TAGSOUP} dumplinks -
+		DLOPTS=${TAGSOUP_DLOPTS} ${TAGSOUP} dumplinks -
 	fi
 }
 
 do_get_inline_images()
 {
 	if [ -t 0 ] ; then
-		${TAGSOUP} dumpimgs ${1+"$@"}
+		DLOPTS=${TAGSOUP_DLOPTS} ${TAGSOUP} dumpimgs ${1+"$@"}
 	else
-		${TAGSOUP} dumpimgs -
+		DLOPTS=${TAGSOUP_DLOPTS} ${TAGSOUP} dumpimgs -
 	fi
 }
 

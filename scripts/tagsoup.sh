@@ -1,6 +1,6 @@
 #!/bin/sh
-##	tagsoup		(c) and GPLv2 2008-2009 William Towle
-##	Last modified	2009-01-13, WmT
+##	tagsoup		(c) and GPLv2 2008-2022 William Towle
+##	Last modified	2022-01-25, WmT
 ##	Purpose		web page dissection
 #
 #*   Open Source software - copyright and GPLv2 apply. Briefly:       *
@@ -12,6 +12,7 @@
 
 ##QUOTE_REGEX="[\'\"]"
 #WGET_OPT_AGENT="--user-agent=$0"
+#WGET_OPT_AGENT_FIREFOX='--user-agent=/usr/bin/firefox'
 
 get()
 {
@@ -24,8 +25,8 @@ get()
 		SOURCE=$1
 		shift
 
-		DLOPTS=''
-# EDIT HERE: set DLOPTS for any sites that need a particular user-agent
+# EDIT HERE: this list adjusts DLOPTS for sites needing wget to use
+# --user-agent and/or --referer
 #		case ${SOURCE} in
 #		http://*.DOMAIN.com/PATH/*)
 #			DLOPTS="${WGET_OPT_AGENT}"
